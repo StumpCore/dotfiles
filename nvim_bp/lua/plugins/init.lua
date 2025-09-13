@@ -13,24 +13,15 @@ return {
     end,
   },
 
-  -- Rustaceanvim Plugin for Rust development
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^6', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
-
-
-  {
-    import = "nvchad.blink.lazyspec",
-  },
+  -- test new blink
+  { import = "nvchad.blink.lazyspec" },
 
   {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
-       "html", "css", "rust"
+       "html", "css"
   		},
   	},
   },
