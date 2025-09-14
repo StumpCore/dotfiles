@@ -1,0 +1,30 @@
+#!/bin/bash
+echo "Setting Debugger File..."
+result=${PWD##*/}          
+result=${result:-/}       
+
+content=$(cat <<EOF
+local dap = require("dap")
+
+dap.adapters.lldb = {
+  type = "executable",
+  command = "/usr/bin/lldb-dap", -- adjust as needed
+  name = "lldb",
+}
+
+dap.configurations.rust = {
+  {
+    name = "${result}",
+    type = "lldb",
+    request = "launch",
+    program = function()
+            return vim.fn.getcwd() .. "/target/debug/${result}"
+    end,
+    cwd = "\${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}
+EOF
+)
+
+echo "${content}" > .nvim-dap.lua
