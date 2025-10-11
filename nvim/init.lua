@@ -1,13 +1,22 @@
 require("config.lazy")
 
 -- Changing the base options
+local diag = vim.diagnostic
 local set = vim.opt
+
 set.clipboard = "unnamedplus"
 set.shiftwidth = 4
 set.tabstop = 4
 set.number = true
 set.relativenumber = true
 
+diag.config({
+	virtual_lines = true,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+})
 
 -- Highligh when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
