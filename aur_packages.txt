@@ -1,0 +1,2 @@
+paru 2.1.0-1
+paru-debug 2.1.0-1
