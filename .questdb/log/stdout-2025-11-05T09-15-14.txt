@@ -1,0 +1,2 @@
+Reading log configuration from /home/stumpcore/.questdb/conf/log.conf
+2025-11-05T08:15:15.590132Z A http-min-server listening on 0.0.0.0:9003 [fd=646392578275 backlog=64]

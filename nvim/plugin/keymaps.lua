@@ -5,6 +5,7 @@ wk.add({
 	{ "<leader>c",        proxy = "<c-x>",         group = "Change" },
 	{ "<leader>g",        proxy = "g",             group = "Go-To" },
 	{ "<leader>f",        group = "File Search" },
+	{ "<leader>r",        group = "Recording" },
 	{ "<leader>fg",       desc = "Find Multi Grep" },
 	{ "<leader><leader>", group = "Reset" },
 	{ "<leader>b",        group = "Buffer" },
@@ -59,3 +60,20 @@ vim.keymap.set("n", "<space>fp", function()
 		cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
 	}
 end, { desc = "Find Files lazy setup" })
+
+-- Recording Macro
+-- 1. Define the keymap for recording the macro (e.g., <Leader>rm)
+vim.keymap.set('n', '<Leader>rr', function()
+	vim.cmd.normal('qq')
+end, {
+	noremap = true,
+	silent = true,
+	desc = "▶ Record Macro (Register 'q')"
+})
+
+-- 2. Define the keymap for playing the macro (e.g., <Leader>pm)
+vim.keymap.set('n', '<Leader>rf', '@q', {
+	noremap = true,
+	silent = true,
+	desc = "▶ Play Macro (Register 'q')"
+})
