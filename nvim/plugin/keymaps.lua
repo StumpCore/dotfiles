@@ -12,6 +12,7 @@ wk.add({
 	{ "s",                group = "Leap" },
 })
 
+
 -- Setting Key-Maps Defaults
 -- Navigation within Neovim
 vim.g.mapleader = " "
@@ -32,6 +33,7 @@ vim.keymap.set("v", "<space><space>T", ":lua<CR>", { desc = "Reload Multiple Nvi
 
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
 
 vim.keymap.set("n", "<space>st", function()
 	vim.cmd.vnew()
@@ -77,3 +79,13 @@ vim.keymap.set('n', '<Leader>rf', '@q', {
 	silent = true,
 	desc = "▶ Play Macro (Register 'q')"
 })
+
+-- Moving Faster around the files
+vim.keymap.set("n", "<S-j>", "10j")
+vim.keymap.set("n", "<S-k>", "10k")
+
+
+-- Keep highlighted section after indentation
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+

@@ -3,12 +3,22 @@ require("config.lazy")
 -- Changing the base options
 local diag = vim.diagnostic
 local set = vim.opt
-
 set.clipboard = "unnamedplus"
+set.swapfile=false
+set.showbreak="> "
+set.shiftround=true
 set.shiftwidth = 4
 set.tabstop = 4
 set.number = true
+set.smarttab=true
 set.relativenumber = true
+set.autoindent =true
+set.breakindent=true
+set.cursorline=true
+set.expandtab=true
+set.preserveindent=true
+set.scrolloff=10
+
 
 diag.config({
 	virtual_lines = true,
@@ -18,7 +28,8 @@ diag.config({
 	update_in_insert = false,
 })
 
--- Highligh when yanking (copying) text
+
+-- High igh when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -35,3 +46,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
 		vim.opt.relativenumber = false
 	end
 })
+
+
+
