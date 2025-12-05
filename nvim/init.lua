@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 require("config.lazy")
 
 -- Changing the base options
@@ -22,10 +24,12 @@ set.scrolloff=10
 
 diag.config({
 	virtual_lines = true,
-	virtual_text = true,
+	virtual_text =  {
+    prefix = ""
+  },
 	signs = true,
 	underline = true,
-	update_in_insert = false,
+	update_in_insert = true,
 })
 
 
@@ -46,6 +50,15 @@ vim.api.nvim_create_autocmd('TermOpen', {
 		vim.opt.relativenumber = false
 	end
 })
+
+-- Auto Format on save
+require("conform").setup({
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
+})
+
 
 
 

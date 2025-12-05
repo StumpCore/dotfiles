@@ -55,36 +55,36 @@ return {
 			}
 
 			-- LSP Config for rust
-			vim.lsp.config['rust_analyzer'] = {
-				cmd = { 'rust-analyzer' },
-				capabilities = capabilities,
-				filetypes = { 'rust' },
-				on_attach = function(client, bufnr)
-					vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-				end,
-				settings = {
-					["rust-analyzer"] = {
-						imports = {
-							granularity = {
-								group = "module",
-							},
-							prefix = "self",
-						},
-						cargo = {
-							buildScripts = {
-								enable = true,
-							},
-						},
-						procMacro = {
-							enable = true
-						},
-					},
-				}
-			}
-
-			-- Enable the lsp
-			vim.lsp.enable("rust_analyzer")
-			vim.lsp.enable("lua_ls")
+			-- vim.lsp.config['rust_analyzer'] = {
+			-- -- 	cmd = { 'rust-analyzer' },
+			-- -- 	capabilities = capabilities,
+			-- -- 	filetypes = { 'rust' },
+			-- -- 	on_attach = function(client, bufnr)
+			-- -- 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			-- -- 	end,
+			-- -- 	settings = {
+			-- -- 		["rust-analyzer"] = {
+			-- -- 			imports = {
+			-- -- 				granularity = {
+			-- -- 					group = "module",
+			-- -- 				},
+			-- -- 				prefix = "self",
+			-- -- 			},
+			-- -- 			cargo = {
+			-- -- 				buildScripts = {
+			-- -- 					enable = true,
+			-- -- 				},
+			-- -- 			},
+			-- -- 			procMacro = {
+			-- -- 				enable = true
+			-- -- 			},
+			-- -- 		},
+			-- -- 	}
+			-- -- }
+			-- --
+			-- -- -- Enable the lsp
+			-- -- vim.lsp.enable("rust_analyzer")
+			-- vim.lsp.enable("lua_ls")
 		end,
 	}
 }

@@ -19,13 +19,20 @@ return {
 				nerd_font_variant = 'mono'
 			},
 
-			completion = { documentation = { auto_show = false } },
+			completion = {  
+        keyword={range='full'},
+        documentation = { auto_show = false },
+        ghost_text = {enabled=true},
+        trigger={show_on_keyword=true}
+
+      },
 
 			sources = {
 				default = { 'lsp', 'path', 'snippets', 'buffer' },
 			},
 
-			fuzzy = { implementation = "prefer_rust_with_warning" }
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+      snippets = { preset = 'default' }
 		},
 		opts_extend = { "sources.default" }
 	}

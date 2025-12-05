@@ -15,8 +15,6 @@ wk.add({
 
 -- Setting Key-Maps Defaults
 -- Navigation within Neovim
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<esc><esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Go to top window" })
 vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Go to right window" })
@@ -40,7 +38,8 @@ vim.keymap.set("n", "<space>st", function()
 	vim.cmd.term()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 15)
-end)
+end
+)
 
 -- Go-To Definitions
 vim.keymap.set("n", "<space>gd", vim.lsp.buf.definition, { desc = "Definition" })
