@@ -6,59 +6,67 @@ require("config.lazy")
 local diag = vim.diagnostic
 local set = vim.opt
 set.clipboard = "unnamedplus"
-set.swapfile=false
-set.showbreak="> "
-set.shiftround=true
+set.swapfile = false
+set.showbreak = "> "
+set.shiftround = true
 set.shiftwidth = 4
 set.tabstop = 4
 set.number = true
-set.smarttab=true
+set.smarttab = true
 set.relativenumber = true
-set.autoindent =true
-set.breakindent=true
-set.cursorline=true
-set.expandtab=true
-set.preserveindent=true
-set.scrolloff=10
-
+set.autoindent = true
+set.breakindent = true
+set.cursorline = true
+set.expandtab = true
+set.preserveindent = true
+set.scrolloff = 10
 
 diag.config({
 	virtual_lines = true,
-	virtual_text =  {
-    prefix = ""
-  },
+	virtual_text = {
+		prefix = "",
+	},
 	signs = true,
 	underline = true,
 	update_in_insert = true,
 })
 
-
 -- High igh when yanking (copying) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
 -- NVIM Terminal
-vim.api.nvim_create_autocmd('TermOpen', {
-	group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
 	callback = function()
 		vim.opt.number = false
 		vim.opt.relativenumber = false
-	end
+	end,
 })
 
 -- Auto Format on save
 require("conform").setup({
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  },
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
+	},
 })
 
-
-
-
+-- Indent lines
+local highlight = {
+	"CursorColumn",
+	"Whitespace",
+}
+require("ibl").setup({
+	indent = { highlight = highlight, char = "" },
+	whitespace = {
+		highlight = highlight,
+		remove_blankline_trail = false,
+	},
+	scope = { enabled = false },
+})
