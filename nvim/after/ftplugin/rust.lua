@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>a", function()
 end, { silent = true, buffer = bufnr })
 vim.keymap.set(
 	"n",
-	"K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+	"L", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
 	function()
 		vim.cmd.RustLsp({ "hover", "actions" })
 	end,
