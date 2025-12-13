@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 require("config.lazy")
+require("config.dapui")
 
 -- Changing the base options
 local diag = vim.diagnostic
@@ -21,15 +22,39 @@ set.expandtab = true
 set.preserveindent = true
 set.scrolloff = 10
 
+-- LSP Diagnostics Options Setup
+local sign = function(opts)
+	vim.fn.sign_define(opts.name, {
+		texthl = opts.name,
+		text = opts.text,
+		numhl = "",
+	})
+end
+
+sign({ name = "DiagnosticSignError", text = "" })
+sign({ name = "DiagnosticSignWarn", text = "" })
+sign({ name = "DiagnosticSignHint", text = "" })
+sign({ name = "DiagnosticSignInfo", text = "" })
+
 diag.config({
 	virtual_lines = true,
-	virtual_text = {
-		prefix = "",
-	},
+	virtual_text = false,
 	signs = true,
 	underline = true,
 	update_in_insert = true,
+	severity_sort = false,
+	float = {
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
 })
+
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
 
 -- High igh when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
