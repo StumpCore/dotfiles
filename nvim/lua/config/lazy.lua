@@ -15,15 +15,46 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+--- Themes
 require("lazy").setup({
 	spec = {
-		-- { "folke/tokyonight.nvim",  config = function() vim.cmd.colorscheme "tokyonight" end },
 		{
-			"savq/melange-nvim",
+			"bluz71/vim-moonfly-colors",
+			name = "moonfly",
+			lazy = false,
+			priority = 1000,
 			config = function()
-				vim.cmd.colorscheme("melange")
+				vim.cmd.colorscheme("moonfly")
 			end,
 		},
+		-- {
+		-- 	"folke/tokyonight.nvim",
+		-- 	config = function()
+		-- 		vim.cmd.colorscheme("tokyonight")
+		-- 	end,
+		-- },
+		-- {
+		-- 	"zootedb0t/citruszest.nvim",
+		-- 	lazy = false,
+		-- 	priority = 1000,
+		-- 	config = function()
+		-- 		vim.cmd.colorscheme("citruszest")
+		-- 	end,
+		-- },
+		-- {
+		-- 	"xero/miasma.nvim",
+		-- 	lazy = false,
+		-- 	priority = 1000,
+		-- 	config = function()
+		-- 		vim.cmd("colorscheme miasma")
+		-- 	end,
+		-- },
+		-- {
+		-- 	"savq/melange-nvim",
+		-- 	config = function()
+		-- 		vim.cmd.colorscheme("melange")
+		-- end,
+		-- },
 		{ import = "config.plugins" },
 	},
 })

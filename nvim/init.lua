@@ -23,23 +23,23 @@ set.preserveindent = true
 set.scrolloff = 10
 
 -- LSP Diagnostics Options Setup
-local sign = function(opts)
-	vim.fn.sign_define(opts.name, {
-		texthl = opts.name,
-		text = opts.text,
-		numhl = "",
-	})
-end
-
-sign({ name = "DiagnosticSignError", text = "" })
-sign({ name = "DiagnosticSignWarn", text = "" })
-sign({ name = "DiagnosticSignHint", text = "" })
-sign({ name = "DiagnosticSignInfo", text = "" })
-
 diag.config({
-	virtual_lines = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = "󰋼 ",
+			[vim.diagnostic.severity.HINT] = "󰌵 ",
+		},
+		numhl = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.INFO] = "",
+		},
+	},
+	virtual_lines = false,
 	virtual_text = false,
-	signs = true,
 	underline = true,
 	update_in_insert = true,
 	severity_sort = false,
