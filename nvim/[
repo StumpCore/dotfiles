@@ -28,10 +28,6 @@ vim.keymap.set("n", "<S-l>", "]b", { desc = "Move to right buffer" })
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
--- Navigate to the next diagnostic
-vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
-vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
-
 -- Additional Movements
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Leap Plugin" })
