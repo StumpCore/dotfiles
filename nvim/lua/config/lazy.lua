@@ -18,15 +18,15 @@ vim.opt.rtp:prepend(lazypath)
 --- Themes
 require("lazy").setup({
 	spec = {
-		{
-			"bluz71/vim-moonfly-colors",
-			name = "moonfly",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				vim.cmd.colorscheme("moonfly")
-			end,
-		},
+		-- {
+		-- 	"bluz71/vim-moonfly-colors",
+		-- 	name = "moonfly",
+		-- 	lazy = false,
+		-- 	priority = 1000,
+		-- 	config = function()
+		-- 		vim.cmd.colorscheme("moonfly")
+		-- 	end,
+		-- },
 		-- {
 		-- 	"folke/tokyonight.nvim",
 		-- 	config = function()
@@ -55,6 +55,18 @@ require("lazy").setup({
 		-- 		vim.cmd.colorscheme("melange")
 		-- end,
 		-- },
+    -- Using lazy.nvim
+  {
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').setup {
+        -- optional configuration here
+      }
+      require('bamboo').load()
+    end,
+  },
 		{ import = "config.plugins" },
 	},
 })
