@@ -6,14 +6,25 @@ require("config.dapui")
 -- Changing the base options
 local diag = vim.diagnostic
 local set = vim.opt
+set.updatetime=250
+set.incsearch=true
+set.hlsearch=true
+set.ignorecase=true
+set.smartcase=true
+set.undofile=true
+set.undodir="~/.config/nvim/undodir"
 set.clipboard = "unnamedplus"
 set.swapfile = false
 set.showbreak = "> "
+set.showmatch=true
+set.wildmenu=true
 set.shiftround = true
 set.shiftwidth = 4
 set.tabstop = 4
+set.softtabstop = 4
 set.number = true
 set.smarttab = true
+set.smartindent=true
 set.relativenumber = true
 set.autoindent = true
 set.breakindent = true
@@ -96,24 +107,3 @@ require("ibl").setup({
 	scope = { enabled = false },
 })
 
-
---- Lux Mtion setup
-require("luxmotion").setup({
-  cursor = {
-    duration = 250,       -- Cursor animation duration (ms)
-    easing = "ease-out",  -- Cursor easing function
-    enabled = true,
-  },
-  scroll = {
-    duration = 400,       -- Scroll animation duration (ms)
-    easing = "ease-out",  -- Scroll easing function
-    enabled = true,
-  },
-  performance = {
-    enabled = false,      -- Enable performance mode
-  },
-  keymaps = {
-    cursor = true,        -- Enable cursor motion keymaps
-    scroll = true,        -- Enable scroll motion keymaps
-  },
-})
