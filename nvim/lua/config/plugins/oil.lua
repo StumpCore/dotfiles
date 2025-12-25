@@ -1,3 +1,5 @@
+vim.api.nvim_set_hl(0,"OilDarkBackground", { bg = "#161714" })
+
 return {
 	{
 		"stevearc/oil.nvim",
@@ -21,7 +23,8 @@ return {
 					max_width = 0.5,
 					max_height = 0.6,
 					win_options = {
-						winblend = 0,
+						winblend = 1,
+            winhighlight="Normal:OilDarkBackground",
 					},
 					border = 1,
 					get_win_title = nil,
