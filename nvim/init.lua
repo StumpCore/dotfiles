@@ -7,8 +7,6 @@ require("config.dapui")
 local diag = vim.diagnostic
 local set = vim.opt
 set.updatetime=250
-set.incsearch=true
-set.hlsearch=true
 set.ignorecase=true
 set.smartcase=true
 set.undofile=true
@@ -17,7 +15,6 @@ set.clipboard = "unnamedplus"
 set.swapfile = false
 set.showbreak = "> "
 set.showmatch=true
-set.wildmenu=true
 set.shiftround = true
 set.shiftwidth = 4
 set.tabstop = 4
