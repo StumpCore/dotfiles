@@ -10,7 +10,6 @@ set.updatetime=250
 set.ignorecase=true
 set.smartcase=true
 set.undofile=true
-set.undodir="undodir"
 set.clipboard = "unnamedplus"
 set.swapfile = false
 set.showbreak = "> "
