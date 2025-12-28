@@ -23,7 +23,7 @@ return {
 					max_width = 0.5,
 					max_height = 0.6,
 					win_options = {
-						winblend = 1,
+						winblend = 0,
             winhighlight="Normal:OilDarkBackground",
 					},
 					border = 1,

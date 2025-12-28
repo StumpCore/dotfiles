@@ -65,7 +65,7 @@ networkmanager
 ninja
 nodejs
 npm
-nvidia
+nvidia-open
 orca
 papers
 pipewire-alsa
