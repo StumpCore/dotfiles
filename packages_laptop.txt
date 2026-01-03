@@ -215,4 +215,5 @@ xfdesktop
 xfwm4
 xfwm4-themes
 xorg-xrandr
+xorg-xset
 yelp

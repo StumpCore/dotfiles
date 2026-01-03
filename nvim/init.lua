@@ -6,6 +6,9 @@ require("config.dapui")
 -- Changing the base options
 local diag = vim.diagnostic
 local set = vim.opt
+local lsp = vim.lsp
+
+-- Opt setings
 set.updatetime=250
 set.ignorecase=true
 set.smartcase=true
@@ -57,6 +60,9 @@ diag.config({
 		prefix = "",
 	},
 })
+
+-- LSP
+lsp.inlay_hint.enable(true)
 
 vim.cmd([[
 set signcolumn=yes
