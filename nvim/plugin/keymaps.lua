@@ -3,6 +3,10 @@ local wk = require("which-key")
 wk.add({
 	{ "<leader>w", proxy = "<c-w>", group = "Windows" },
 	{ "<leader>c", proxy = "<c-x>", group = "Change" },
+	{ "<leader>y", group = "Surround" },
+	{ "<leader>yi", group = "Surround Insert" },
+	{ "<leader>yd", group = "Surround Delete" },
+	{ "<leader>yc", group = "Surround Change" },
 	{ "<leader>g", proxy = "g", group = "Go-To" },
 	{ "<leader>f", group = "File Search" },
 	{ "<leader>r", group = "Recording" },
@@ -53,6 +57,31 @@ end)
 vim.keymap.set("n", "<space>gd", vim.lsp.buf.definition, { desc = "Definition" })
 vim.keymap.set("n", "<space>gD", vim.lsp.buf.declaration, { desc = "Declaration" })
 vim.keymap.set("n", "<space>gE", vim.lsp.buf.type_definition, { desc = "Type-Definition" })
+
+-- Surround 
+vim.keymap.set("n", "<space>yip", "ysiw)" , {remap=true, desc = "Insert ()" })
+vim.keymap.set("n", "<space>yib", "ysiw]" , {remap=true, desc = "Insert []" })
+vim.keymap.set("n", "<space>yic", "ysiw}" , {remap=true, desc = "Insert {}" })
+vim.keymap.set("n", "<space>yik", "ysiw>" , {remap=true, desc = "Insert <>" })
+vim.keymap.set("n", "<space>yid", 'ysiw"' , {remap=true, desc = 'Insert ""' })
+
+vim.keymap.set("n", "<space>ydp", "ds)" , {remap=true, desc = "Delete ()" })
+vim.keymap.set("n", "<space>ydb", "ds]" , {remap=true, desc = "Delete []" })
+vim.keymap.set("n", "<space>ydc", "ds}" , {remap=true, desc = "Delete {}" })
+vim.keymap.set("n", "<space>ydk", "ds>" , {remap=true, desc = "Delete <>" })
+vim.keymap.set("n", "<space>ydd", 'ds"' , {remap=true, desc = 'Delete ""' })
+
+vim.keymap.set("n", "<space>ycp", "cs)" , {remap=true, desc = "Change ()" })
+vim.keymap.set("n", "<space>ycb", "cs]" , {remap=true, desc = "Change []" })
+vim.keymap.set("n", "<space>ycc", "cs}" , {remap=true, desc = "Change {}" })
+vim.keymap.set("n", "<space>yck", "cs>" , {remap=true, desc = "Change <>" })
+vim.keymap.set("n", "<space>ycd", 'cs"' , {remap=true, desc = 'Change ""' })
+
+vim.keymap.set("v", "<space>yp", "<S-S>)" , {remap=true, desc = "Visual Surround ()" })
+vim.keymap.set("v", "<space>yb", "<S-S>]" , {remap=true, desc = "Visual Surround []" })
+vim.keymap.set("v", "<space>yc", "<S-S>}" , {remap=true, desc = "Visual Surround {}" })
+vim.keymap.set("v", "<space>yk", "<S-S>>" , {remap=true, desc = "Visual Surround <>" })
+vim.keymap.set("v", "<space>yd", '<S-S>"' , {remap=true, desc = 'Visual Surround ""' })
 
 -- File Navigation
 vim.keymap.set("n", "<space>fh", require("telescope.builtin").help_tags, { desc = "Treesitter Help" })

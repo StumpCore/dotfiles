@@ -1,3 +1,4 @@
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -14,6 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.api.nvim_set_hl(0,"OilDarkBackground", { bg = "#161714" })
 
 --- Themes
 require("lazy").setup({
@@ -62,7 +64,7 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require('bamboo').setup {
-        -- optional configuration here
+				-- Specify setup
       }
       require('bamboo').load()
     end,

@@ -1,5 +1,5 @@
-vim.api.nvim_set_hl(0,"OilDarkBackground", { bg = "#161714" })
 
+vim.api.nvim_set_hl(0,"OilDarkBackground", { bg = "#161714" })
 return {
 	{
 		"stevearc/oil.nvim",
